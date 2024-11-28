@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ktor.serialization)
 }
 
 android {
     namespace = "com.cvirn.remote"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 29
@@ -19,7 +20,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -40,4 +41,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.koin.core)
+    implementation(libs.ktor.android)
+    implementation(libs.ktor.serialization)
+    implementation(libs.ktor.logging)
+    implementation(libs.ktor.core)
+    implementation(libs.ktor.content.negotiation)
 }

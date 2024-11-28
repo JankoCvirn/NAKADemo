@@ -1,34 +1,31 @@
-package com.cvirn.nakademo.screen.home
+package com.cvirn.nakademo.screen.remoteuser
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cvirn.nakademo.viewmodel.HomeScreenViewModel
 import com.cvirn.nakademo.viewmodel.RemoteUsersViewModel
-import db.User
 import org.koin.androidx.compose.koinViewModel
+import com.cvirn.remote.model.User as RemoteUser
 
 @Suppress("ktlint:standard:function-naming")
 @Composable
-fun HomeScreen(
-    onNavigateToCreate: () -> Unit,
-    onNavigateToUpdate: (User?) -> Unit,
+fun RemoteUsersScreen(
+    onNavigateToUsersPost: (RemoteUser) -> Unit,
+    onNavigateToCreatePost: (RemoteUser) -> Unit,
     paddingValues: PaddingValues,
 ) {
-    val homeScreenViewModel: HomeScreenViewModel = koinViewModel()
     val remoteUsersViewModel: RemoteUsersViewModel = koinViewModel()
-    val userList by homeScreenViewModel.allUsersFlow.collectAsStateWithLifecycle()
+    val screenState by remoteUsersViewModel.allRemoteUsers.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
-        homeScreenViewModel.loadUsers()
         remoteUsersViewModel.loadUsers()
     }
-    HomeScreenContent(
-        padding = paddingValues,
-        userList = userList,
-        onNavigateToUpdate = onNavigateToUpdate,
-        onNavigateToCreate = onNavigateToCreate,
+    RemoteUsersScreenContent(
+        paddingValues = paddingValues,
+        screenState = screenState,
+        onNavigateToUsersPost = onNavigateToUsersPost,
+        onNavigateToCreatePost = onNavigateToCreatePost,
     )
 }

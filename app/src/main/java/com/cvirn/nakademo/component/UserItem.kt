@@ -30,6 +30,7 @@ import com.cvirn.nakademo.ui.theme.NAKADemoTheme
 import com.cvirn.task4me.ui.values.LocalPaddingValues
 import db.User
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
 fun UserCard(
     user: User,
@@ -98,6 +99,7 @@ fun UserCard(
     }
 }
 
+@Suppress("ktlint:standard:function-naming")
 @Preview(
     uiMode = UI_MODE_NIGHT_YES,
     name = "DefaultPreviewDark",

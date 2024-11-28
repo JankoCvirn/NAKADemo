@@ -1,6 +1,7 @@
 # **NAKA Test app**
 
 _Mobile Developer Expertise Test._
+
 Task 1:
 Create a simple mobile app (Android or iOS) that performs basic user management tasks, with
 the following features:
@@ -11,7 +12,8 @@ the following features:
 4. Statistics View: Include a “Statistics” button, which presents a view displaying:
    ○ Average Age of all users
    ○ Gender Distribution: Display the percentage of male and female users
-   Task 2:
+   
+Task 2:
    Extend the app with a second tab that integrates with an external API:
 5. User Data Fetching: Create a screen that fetches a list of users from JSONPlaceholder
    (https://jsonplaceholder.typicode.com/).
