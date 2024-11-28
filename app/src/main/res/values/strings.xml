@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">NAKA Demo</string>
+    <string name="user_name">%1$s %2$s</string>
+    <string name="user_genger_male">Male</string>
+    <string name="user_gender_female">Female</string>
+    <string name="user_age">%1$d</string>
+    <string name="user_first_name_placeholder">first name</string>
+    <string name="user_last_name_placeholder">last name</string>
+    <string name="user_age_placeholder">age</string>
+    <string name="action_create">Create</string>
+    <string name="action_update">Update</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_error">All fields have to be populated!</string>
+    <string name="action_back">Back</string>
+    <string name="action_home">home</string>
+    <string name="average_age">Average age is %1$.2f years.</string>
 </resources>

@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS User (
+    id INTEGER NOT NULL PRIMARY KEY,
+    firstname TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    age INTEGER NOT NULL,
+    gender INTEGER NOT NULL
+);
+
+selectAllUsers:
+SELECT * FROM User;
+
+insertUser:
+INSERT OR REPLACE INTO User VALUES (?,?,?,?,?);
+
+deleteUser:
+DELETE FROM User WHERE id = ?;
+
+updateUser:
+UPDATE User SET firstname=? , lastname=? , age=? , gender=? WHERE id = ?;
+

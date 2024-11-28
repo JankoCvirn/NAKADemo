@@ -4,4 +4,13 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.sqldelight) apply false
+    alias(libs.plugins.ktlint)
+}
+
+ktlint {
+    version.set(libs.versions.ktlint.get())
+    android.set(true)
+    outputToConsole.set(true)
+    ignoreFailures.set(false)
 }
