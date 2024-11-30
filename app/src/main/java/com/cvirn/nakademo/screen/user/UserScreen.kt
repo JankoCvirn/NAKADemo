@@ -5,14 +5,19 @@ import com.cvirn.nakademo.viewmodel.UserScreenViewModel
 import db.User
 import org.koin.androidx.compose.koinViewModel
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
-fun UserScreen(user: User?, onNavigateBack: () -> Boolean) {
+fun UserScreen(
+    user: User?,
+    onNavigateBack: () -> Boolean,
+) {
     val userScreenViewModel: UserScreenViewModel = koinViewModel()
 
     user?.let {
         userScreenViewModel.setUserState(user)
     }
     UserScreenContent(
-        userScreenViewModel, onNavigateBack
+        userScreenViewModel,
+        onNavigateBack,
     )
 }

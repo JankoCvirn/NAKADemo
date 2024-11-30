@@ -5,6 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.remember
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.cvirn.nakademo.component.NakaTopAppBar
@@ -18,16 +21,28 @@ class MainActivity : ComponentActivity() {
         setContent {
             NAKADemoTheme {
                 val navController = rememberNavController()
-                Scaffold(topBar = {
-                    val currentDestination =
-                        navController.currentBackStackEntryAsState().value?.destination?.route
-                    NakaTopAppBar(
-                        navController, currentDestination
-                    )
-                },
+                val snackbarHostState = remember { SnackbarHostState() }
+
+                Scaffold(
+                    topBar = {
+                        val currentDestination =
+                            navController
+                                .currentBackStackEntryAsState()
+                                .value
+                                ?.destination
+                                ?.route
+                        NakaTopAppBar(
+                            navController,
+                            currentDestination,
+                        )
+                    },
+                    snackbarHost = {
+                        SnackbarHost(snackbarHostState)
+                    },
                     content = { padding ->
                         AppNavigation(padding, navController)
-                    })
+                    },
+                )
             }
         }
     }

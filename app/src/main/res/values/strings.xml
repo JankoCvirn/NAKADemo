@@ -10,8 +10,17 @@
     <string name="action_create">Create</string>
     <string name="action_update">Update</string>
     <string name="action_delete">Delete</string>
+    <string name="action_close">Close</string>
     <string name="action_error">All fields have to be populated!</string>
     <string name="action_back">Back</string>
     <string name="action_home">home</string>
     <string name="average_age">Average age is %1$.2f years.</string>
+    <string name="remote_user_name">%1$s</string>
+    <string name="remote_user_contact">%1$s | %2$s</string>
+    <string name="remote_user_company">%1$s | %2$s | %3$s </string>
+    <string name="create_post_title">Create new post</string>
+    <string name="create_post_title_hint">title</string>
+    <string name="create_post_content_hint">content</string>
+    <string name="create_post_sucess">Post was created!</string>
+    <string name="create_post_failed">Server error!</string>
 </resources>

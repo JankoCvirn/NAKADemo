@@ -1,4 +1,4 @@
-package com.cvirn.remote.model
+package com.cvirn.remote.model.user
 
 import kotlinx.serialization.Serializable
 

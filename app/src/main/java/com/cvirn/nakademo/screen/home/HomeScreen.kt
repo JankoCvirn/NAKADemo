@@ -6,7 +6,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cvirn.nakademo.viewmodel.HomeScreenViewModel
-import com.cvirn.nakademo.viewmodel.RemoteUsersViewModel
 import db.User
 import org.koin.androidx.compose.koinViewModel
 
@@ -18,12 +17,10 @@ fun HomeScreen(
     paddingValues: PaddingValues,
 ) {
     val homeScreenViewModel: HomeScreenViewModel = koinViewModel()
-    val remoteUsersViewModel: RemoteUsersViewModel = koinViewModel()
     val userList by homeScreenViewModel.allUsersFlow.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         homeScreenViewModel.loadUsers()
-        remoteUsersViewModel.loadUsers()
     }
     HomeScreenContent(
         padding = paddingValues,

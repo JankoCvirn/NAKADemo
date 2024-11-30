@@ -30,7 +30,7 @@ import com.cvirn.nakademo.extension.toStateString
 import com.cvirn.nakademo.viewmodel.UserScreenViewModel
 import com.cvirn.task4me.ui.values.LocalPaddingValues
 
-
+@Suppress("ktlint:standard:function-naming")
 @Composable
 fun UserScreenContent(
     userScreenViewModel: UserScreenViewModel,
@@ -40,18 +40,19 @@ fun UserScreenContent(
     val userState by userScreenViewModel.userViewState.collectAsState()
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(LocalPaddingValues.current.large),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .padding(LocalPaddingValues.current.large),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         AnimatedVisibility(userState.hasErrors ?: false) {
             Text(
                 text = stringResource(R.string.action_error),
                 style = MaterialTheme.typography.titleMedium,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = 1
+                maxLines = 1,
             )
         }
         OutlinedTextField(
@@ -60,7 +61,7 @@ fun UserScreenContent(
             modifier = Modifier.fillMaxWidth(),
             label = { Text(text = stringResource(R.string.user_first_name_placeholder)) },
             singleLine = true,
-            textStyle = MaterialTheme.typography.bodyLarge
+            textStyle = MaterialTheme.typography.bodyLarge,
         )
 
         OutlinedTextField(
@@ -69,7 +70,7 @@ fun UserScreenContent(
             modifier = Modifier.fillMaxWidth(),
             label = { Text(text = stringResource(R.string.user_last_name_placeholder)) },
             singleLine = true,
-            textStyle = MaterialTheme.typography.bodyLarge
+            textStyle = MaterialTheme.typography.bodyLarge,
         )
 
         OutlinedTextField(
@@ -81,18 +82,19 @@ fun UserScreenContent(
             label = { Text(text = stringResource(R.string.user_age_placeholder)) },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             singleLine = true,
-            textStyle = MaterialTheme.typography.bodyLarge
+            textStyle = MaterialTheme.typography.bodyLarge,
         )
 
         RadioButtonGroup(
-            radioOptions = listOf(
-                stringResource(R.string.user_genger_male),
-                stringResource(R.string.user_gender_female)
-            ),
+            radioOptions =
+                listOf(
+                    stringResource(R.string.user_genger_male),
+                    stringResource(R.string.user_gender_female),
+                ),
             selectedOption = userState.gender.toStateString(context),
             onOptionSelected = { gender ->
                 userScreenViewModel.updateGender(gender.toStateLong(context))
-            }
+            },
         )
 
         Spacer(modifier = Modifier.height(LocalPaddingValues.current.large))
@@ -102,7 +104,7 @@ fun UserScreenContent(
                     if (userScreenViewModel.addNewUser()) {
                         onNavigateBack()
                     }
-                }
+                },
             )
         } else {
             UpdateUserButtons(
@@ -114,30 +116,31 @@ fun UserScreenContent(
                 deleteUser = {
                     userScreenViewModel.deleteUser()
                     onNavigateBack()
-                }
+                },
             )
         }
-
     }
 }
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
 private fun UpdateUserButtons(
     updateUser: () -> Unit,
     deleteUser: () -> Unit,
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(LocalPaddingValues.current.large),
-        horizontalArrangement = Arrangement.SpaceEvenly
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(LocalPaddingValues.current.large),
+        horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         Button(onClick = {
             updateUser()
         }) {
             Text(
                 text = stringResource(R.string.action_update),
-                style = MaterialTheme.typography.labelMedium
+                style = MaterialTheme.typography.labelMedium,
             )
         }
         Button(onClick = {
@@ -145,28 +148,28 @@ private fun UpdateUserButtons(
         }) {
             Text(
                 text = stringResource(R.string.action_delete),
-                style = MaterialTheme.typography.labelMedium
+                style = MaterialTheme.typography.labelMedium,
             )
         }
     }
 }
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
-private fun CreateUserButtons(
-    addNewUser: () -> Unit
-) {
+private fun CreateUserButtons(addNewUser: () -> Unit) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(LocalPaddingValues.current.large),
-        horizontalArrangement = Arrangement.SpaceEvenly
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(LocalPaddingValues.current.large),
+        horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         Button(onClick = {
             addNewUser()
         }) {
             Text(
                 text = stringResource(R.string.action_create),
-                style = MaterialTheme.typography.labelMedium
+                style = MaterialTheme.typography.labelMedium,
             )
         }
     }
