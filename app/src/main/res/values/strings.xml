@@ -23,4 +23,6 @@
     <string name="create_post_content_hint">content</string>
     <string name="create_post_sucess">Post was created!</string>
     <string name="create_post_failed">Server error!</string>
+    <string name="tab_local_users">App users</string>
+    <string name="tab_remote_users">Remote users</string>
 </resources>

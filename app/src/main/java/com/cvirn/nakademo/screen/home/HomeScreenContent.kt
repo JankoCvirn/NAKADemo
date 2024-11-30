@@ -4,7 +4,6 @@ import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -26,17 +25,17 @@ import com.cvirn.nakademo.ui.theme.NAKADemoTheme
 import com.cvirn.task4me.ui.values.LocalPaddingValues
 import db.User
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
 fun HomeScreenContent(
     userList: List<User>,
     onNavigateToCreate: () -> Unit,
     onNavigateToUpdate: (User?) -> Unit,
-    padding: PaddingValues
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(padding)
+        modifier =
+            Modifier
+                .fillMaxSize(),
     ) {
         LazyColumn(
             modifier = Modifier.padding(LocalPaddingValues.current.small),
@@ -48,10 +47,11 @@ fun HomeScreenContent(
         }
         FloatingActionButton(
             onClick = onNavigateToCreate,
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(LocalPaddingValues.current.large)
-                .size(68.dp),
+            modifier =
+                Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(LocalPaddingValues.current.large)
+                    .size(68.dp),
             shape = MaterialTheme.shapes.extraLarge,
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -68,34 +68,35 @@ fun HomeScreenContent(
 
 @Preview(
     uiMode = UI_MODE_NIGHT_YES,
-    name = "DefaultPreviewDark"
+    name = "DefaultPreviewDark",
 )
 @Preview(
     uiMode = UI_MODE_NIGHT_NO,
-    name = "DefaultPreviewLight"
+    name = "DefaultPreviewLight",
 )
 @Composable
 fun PreviewHomeScreenContent() {
     NAKADemoTheme {
-        val paddingValues = PaddingValues(16.dp)
         HomeScreenContent(
             userList =
-            listOf(
-                User(
-                    id = 100L,
-                    firstname = "Anna",
-                    lastname = "Bauer",
-                    age = 32,
-                    gender = 0
+                listOf(
+                    User(
+                        id = 100L,
+                        firstname = "Anna",
+                        lastname = "Bauer",
+                        age = 32,
+                        gender = 0,
+                    ),
+                    User(
+                        id = 100L,
+                        firstname = "Josip",
+                        lastname = "Bauer",
+                        age = 41,
+                        gender = 1,
+                    ),
                 ),
-                User(
-                    id = 100L,
-                    firstname = "Josip",
-                    lastname = "Bauer",
-                    age = 41,
-                    gender = 1
-                ),
-            ), {}, {}, paddingValues
+            {},
+            {},
         )
     }
 }

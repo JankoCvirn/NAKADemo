@@ -18,6 +18,7 @@ import com.cvirn.nakademo.extension.toDegree
 import com.cvirn.nakademo.viewmodel.StatisticsScreenViewModel
 import com.cvirn.task4me.ui.values.LocalPaddingValues
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
 fun StatisticsScreenContent(statisticsViewModele: StatisticsScreenViewModel) {
     val statisticsScreenState by statisticsViewModele.statisticsFlow.collectAsState()

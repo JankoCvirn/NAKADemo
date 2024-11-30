@@ -3,7 +3,6 @@ package com.cvirn.nakademo.screen.posts
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -36,7 +35,6 @@ import com.cvirn.task4me.ui.values.LocalPaddingValues
 @Suppress("ktlint:standard:function-naming")
 @Composable
 fun UserPostsScreenContent(
-    padding: PaddingValues,
     userId: Int,
     userPostViewModel: UserPostsViewModel,
 ) {
@@ -61,7 +59,7 @@ fun UserPostsScreenContent(
         modifier =
             Modifier
                 .fillMaxSize()
-                .padding(padding),
+                .padding(top = 96.dp),
     ) {
         LazyColumn(
             modifier = Modifier.padding(LocalPaddingValues.current.small),

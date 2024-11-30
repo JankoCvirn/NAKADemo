@@ -2,7 +2,6 @@ package com.cvirn.nakademo.screen.remoteuser
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,15 +14,13 @@ import com.cvirn.task4me.ui.values.LocalPaddingValues
 @Suppress("ktlint:standard:function-naming")
 @Composable
 fun RemoteUsersScreenContent(
-    paddingValues: PaddingValues,
     screenState: RemoteUserScreenState,
     onNavigateToUsersPost: (Int?) -> Unit,
 ) {
     Box(
         modifier =
             Modifier
-                .fillMaxSize()
-                .padding(paddingValues),
+                .fillMaxSize(),
     ) {
         LazyColumn(
             modifier = Modifier.padding(LocalPaddingValues.current.small),

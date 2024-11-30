@@ -1,5 +1,6 @@
 package com.cvirn.nakademo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -15,6 +17,7 @@ import com.cvirn.nakademo.navigation.AppNavigation
 import com.cvirn.nakademo.ui.theme.NAKADemoTheme
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,6 +25,10 @@ class MainActivity : ComponentActivity() {
             NAKADemoTheme {
                 val navController = rememberNavController()
                 val snackbarHostState = remember { SnackbarHostState() }
+
+                LaunchedEffect(Unit) {
+                    // snackbarHostState.showSnackbar()
+                }
 
                 Scaffold(
                     topBar = {
@@ -39,8 +46,8 @@ class MainActivity : ComponentActivity() {
                     snackbarHost = {
                         SnackbarHost(snackbarHostState)
                     },
-                    content = { padding ->
-                        AppNavigation(padding, navController)
+                    content = { _ ->
+                        AppNavigation(navController)
                     },
                 )
             }

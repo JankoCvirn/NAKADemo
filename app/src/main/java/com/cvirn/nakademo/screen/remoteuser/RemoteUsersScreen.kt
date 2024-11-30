@@ -12,7 +12,6 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun RemoteUsersScreen(
     onNavigateToUsersPost: (Int?) -> Unit,
-    paddingValues: PaddingValues,
 ) {
     val remoteUsersViewModel: RemoteUsersViewModel = koinViewModel()
     val screenState by remoteUsersViewModel.allRemoteUsers.collectAsStateWithLifecycle()
@@ -21,7 +20,6 @@ fun RemoteUsersScreen(
         remoteUsersViewModel.loadRemoteUsers()
     }
     RemoteUsersScreenContent(
-        paddingValues = paddingValues,
         screenState = screenState,
         onNavigateToUsersPost = onNavigateToUsersPost,
     )
