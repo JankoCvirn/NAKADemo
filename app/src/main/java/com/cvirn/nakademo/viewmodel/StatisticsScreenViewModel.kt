@@ -36,7 +36,11 @@ class StatisticsScreenViewModel(
         list.forEach {
             ageSum += it.age
         }
-        return ageSum / list.count()
+        return if (list.isNotEmpty()) {
+            ageSum / list.count()
+        } else {
+            0.0
+        }
     }
 
     private fun calculateGenderDistribution(list: List<User>): Pair<Double, Double> {

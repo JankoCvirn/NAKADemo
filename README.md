@@ -30,10 +30,6 @@ Task 2:
 - [Features](#features)
 - [Architecture](#architecture)
 - [Setup and Installation](#setup-and-installation)
-- [Technologies Used](#technologies-used)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -71,3 +67,5 @@ The project follows the **[MVVM]** for scalability, maintainability, and separat
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/your-repo.git
+   
+2. Build it

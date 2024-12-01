@@ -2,6 +2,7 @@ package com.cvirn.nakademo.di
 
 import com.cvirn.nakademo.usecase.RemoteUserUseCaseImpl
 import com.cvirn.nakademo.usecase.UserCrudUseCaseImpl
+import com.cvirn.nakademo.viewmodel.AppViewModel
 import com.cvirn.nakademo.viewmodel.HomeScreenViewModel
 import com.cvirn.nakademo.viewmodel.RemoteUsersViewModel
 import com.cvirn.nakademo.viewmodel.StatisticsScreenViewModel
@@ -21,4 +22,5 @@ val appModule =
         viewModel { StatisticsScreenViewModel(get()) }
         viewModel { RemoteUsersViewModel(get()) }
         viewModel { UserPostsViewModel(get()) }
+        viewModel { AppViewModel() }
     }

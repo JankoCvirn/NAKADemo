@@ -25,4 +25,5 @@
     <string name="create_post_failed">Server error!</string>
     <string name="tab_local_users">App users</string>
     <string name="tab_remote_users">Remote users</string>
+    <string name="general_error">Ups , error fetching data!</string>
 </resources>
