@@ -6,18 +6,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import sqldelight.db.Database
 
-
 class LocalDataRepositoryImpl(
-    database: Database
+    database: Database,
 ) : LocalDataRepository {
-
     private val userQueries = database.userQueries
 
-    override fun getAllUsers(): Flow<List<User>> {
-        return userQueries.selectAllUsers().asFlow().map {
+    override fun getAllUsers(): Flow<List<User>> =
+        userQueries.selectAllUsers().asFlow().map {
             it.executeAsList()
         }
-    }
 
     override fun addUser(user: User) {
         userQueries.insertUser(
@@ -25,7 +22,7 @@ class LocalDataRepositoryImpl(
             firstname = user.firstname,
             lastname = user.lastname,
             age = user.age,
-            gender = user.gender
+            gender = user.gender,
         )
     }
 
@@ -35,7 +32,7 @@ class LocalDataRepositoryImpl(
             firstname = user.firstname,
             lastname = user.lastname,
             age = user.age,
-            gender = user.gender
+            gender = user.gender,
         )
     }
 
